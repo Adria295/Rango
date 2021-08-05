@@ -36,21 +36,26 @@
                     </p>
                     <p class="required">
                         <label class="required" for="id_email">E-mail:</label>
-                        <input class="form-control" id="id_email" name="email" type="email" />
+                        <input class="form-control" id="id_email" name="email" type="email" onblur="checkEmail()" />
+                        <span id="userEmail"></span>
                     </p>
                     <p class="required">
                         <label class="required" for="id_password1">Password:</label>
-                        <input class="form-control" id="id_password1" name="password1" type="password" />
+                        <input class="form-control" id="id_password1" name="password1" type="password" onblur="checkPsw()" />
+                        <span id="userPsw1"></span>
                     </p>
                     <p class="required">
                         <label class="required" for="id_password2">Password confirmation:</label>
-                        <input class="form-control" id="id_password2" name="password2" type="password" />
+                        <input class="form-control" id="id_password2" name="password2" type="password" onblur="checkRepsw()"/>
+                        <span id="userPsw2"></span>
+                        <!--
                         <span class="helptext">
                             Enter the same password as before, for verification.
                         </span>
+                        -->
                     </p>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" onsubmit="checkForm()">Submit</button>
             </form>
         </div>
     </div>
