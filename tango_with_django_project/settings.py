@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rango',
     'registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -133,10 +138,4 @@ STATICFILES_DIRS = [STATIC_DIR, ]
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-
-
-
-
-
-
-
+SITE_ID = 1
