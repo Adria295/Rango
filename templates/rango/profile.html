@@ -13,7 +13,7 @@
 
     </div>
 </div>
-<div class="container" style="position:relative;left:150px;">
+<div class="container" style="position:relative;left:150px;font-size: x-large">
     <div class="row" >
         <img src="{{ MEDIA_URL }}{{ user_profile.picture }}"
         width="300"
@@ -28,7 +28,7 @@
 
         <input type="submit" value="Update" />
        
-            <p><a class="btn btn-lg btn-primary" href="{% url 'auth_password_change' %}" role="button">Change Password</a></p>
+            <p style="margin: 30px"><a class="btn btn-lg btn-primary" href="{% url 'auth_password_change' %}" role="button">Change Password</a></p>
         
         
     </form>

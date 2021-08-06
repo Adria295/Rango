@@ -12,9 +12,9 @@
 
 {% block body_block %}
 
-<div class="jumbotron p-4">
+<div class="jumbotron p-4" style="background-color:#222222">
     <div class="container">
-        <h1 class="jumbotron-heading">Register Here</h1>
+        <h1 class="jumbotron-heading" style="color:whitesmoke">Register Here</h1>
     </div>
 </div>
 
@@ -25,23 +25,23 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <p class="required">
-                        <label class="required" for="id_username">Username:</label>
-                        <input class="form-control" id="id_username" maxlength="30" name="username" type="text" onblur="checkUsername()" style="width:200px" />
+                        <label class="required" for="id_username" style="font-size: x-large">Username:</label>
+                        <input class="form-control" id="id_username" maxlength="30" name="username" type="text" onblur="checkUsername()" style="width:350px" />
                         <span id="userInfo"></span>
                     </p>
                    <p class="required">
-                        <label class="required" for="id_email">E-mail:</label>
-                        <input class="form-control" id="id_email" name="email" type="email" onblur="checkEmail()" style="width:200px"/>
+                        <label class="required" for="id_email" style="font-size: x-large">E-mail:</label>
+                        <input class="form-control" id="id_email" name="email" type="email" onblur="checkEmail()" style="width:350px"/>
                         <span id="userEmail"></span>
                     </p>
                     <p class="required">
-                        <label class="required" for="id_password1">Password:</label>
-                        <input class="form-control" id="id_password1" name="password1" type="password" onblur="checkPsw()" style="width:200px"/>
+                        <label class="required" for="id_password1" style="font-size: x-large">Password:</label>
+                        <input class="form-control" id="id_password1" name="password1" type="password" onblur="checkPsw()" style="width:350px"/>
                         <span id="userPsw1"></span>
                     </p>
                     <p class="required">
-                        <label class="required" for="id_password2">Password confirmation:</label>
-                        <input class="form-control" id="id_password2" name="password2" type="password" onblur="checkRepsw()"style="width:200px"/>
+                        <label class="required" for="id_password2" style="font-size: x-large">Password confirmation:</label>
+                        <input class="form-control" id="id_password2" name="password2" type="password" onblur="checkRepsw()"style="width:350px"/>
                         <span id="userPsw2"></span>
                     </p>
                 </div>
