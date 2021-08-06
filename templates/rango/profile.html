@@ -21,7 +21,7 @@
         <br />
     </div>
     {% if selected_user == user %}
-    <form method="post" action="." enctype="multipart/form-data"></form>
+    <form method="post" action="." enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
 

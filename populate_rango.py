@@ -5,6 +5,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 from rango.models import Category,Page
+from allauth.socialaccount.models import SocialApp
+from django.contrib.sites.models import Site
 
 def populate():
     python_pages = [
@@ -145,6 +147,7 @@ def populate():
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
+    init_google()
 
 def add_page(cat,title,url,views=0):
     p = Page.objects.get_or_create(category=cat, title=title)[0]
@@ -159,6 +162,16 @@ def add_cat(name, views=0, likes=0):
     c.likes = likes
     c.save()
     return c
+
+
+def init_google():
+    app = SocialApp.objects.create(provider='google', name='google',
+     client_id='419845704276-glnshra6fuprrtpl0oht61nl2675cu3c.apps.googleusercontent.com', 
+     secret='lIGxuM5i0ZY-JYBB1GXt8PM9'
+     )
+    site = Site.objects.first()
+    app.sites.add(site)
+
 
 if __name__=='__main__':
     print('Starting Rango population script...')
