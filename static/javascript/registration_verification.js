@@ -52,7 +52,7 @@ function checkRepsw() {
         flag = false;
         return;
     }
-    // 比对两次密码
+    // Compare the password
     let psw = $("#id_password1").val();
     if(psw == password) {
         $("#userPsw2").text("")
