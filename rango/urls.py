@@ -11,4 +11,5 @@ urlpatterns = [
     path('category/<slug:category_name_slug>/add_page/', views.add_page, name='add_page'),
     path('restricted/', views.restricted, name='restricted'),
     path('profile/<username>/', views.ProfileView.as_view(), name='profile'),
+    path('search/', views.search, name='search'),
 ]
