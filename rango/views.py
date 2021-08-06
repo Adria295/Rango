@@ -17,10 +17,12 @@ from rango.models import UserProfile
 from django.views import View
 from rango.bing_search import run_query
 
+def cover(request):
+    return render(request, 'rango/cover.html', )
 
 def index(request):
-    category_list = Category.objects.order_by('-likes')[:5]
-    page_list = Page.objects.order_by('-views')[:5]
+    category_list = Category.objects.order_by('-likes')[:8]
+    page_list = Page.objects.order_by('-views')[:10]
 
     context_dict = {}
     context_dict['boldmessage'] = 'Crunchy, creamy, cookie, candy, cupcake!'

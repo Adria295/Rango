@@ -5,6 +5,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE',
 import django
 django.setup()
 from rango.models import Category,Page
+from allauth.socialaccount.models import SocialApp
+from django.contrib.sites.models import Site
 
 def populate():
     python_pages = [
@@ -50,6 +52,12 @@ def populate():
         {'title': 'C Programming Tutorial for Beginners',
         'url': 'https://www.youtube.com/watch?v=KJgsSFOSQv0',
         'views':875},
+        {'title': '"C" Programming Language: Brian Kernighan - Computerphile',
+        'url': 'https://www.youtube.com/watch?v=de2Hsvxaf8M',
+        'views':23},
+        {'title': 'Pointers In C',
+        'url': 'https://www.youtube.com/watch?v=mw1qsMieK5c',
+        'views':75},
         {'title': 'Learn C Programming in 10 Hours',
         'url': 'https://www.youtube.com/watch?v=Bz4MxDeEM6k',
         'views':84}]
@@ -79,12 +87,43 @@ def populate():
         'url': 'https://www.youtube.com/watch?v=_zQqN5OYCCM',
         'views':90}]
 
+    js_pages = [
+        {'title': 'Study JavaScript Here!',
+        'url': 'http://thecodeplayer.com',
+        'views':34},
+        {'title': 'Build 30 Things In 30 Days With 30 Tutorials',
+        'url': 'https://javascript30.com/c',
+        'views':369},
+        {'title': 'JavaScript Memory Management',
+        'url': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management',
+        'views':9},
+        {'title': 'JavaScript Event Loop',
+        'url': 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop',
+        'views':90}]
+
+    php_pages = [
+        {'title': 'PHP Community',
+        'url': 'https://phpcommunity.org/',
+        'views':34},
+        {'title': 'Everything About PHP Developer',
+        'url': 'http://www.phpdeveloper.org/',
+        'views':369},
+        {'title': 'PHP Forum',
+        'url': 'http://www.php-forum.com/phpforum/',
+        'views':9}]
+
     practice_pages = [
         {'title': 'Learn To Code',
         'url': 'https://www.sololearn.com/home',
         'views':39},
         {'title': 'Free Code Camp',
         'url': 'https://www.freecodecamp.org/',
+        'views':49},
+        {'title': 'Codewars',
+        'url': 'https://www.codewars.com',
+        'views':49},
+        {'title': 'CodeFights',
+        'url': 'https://app.codesignal.com/',
         'views':49},
         {'title': 'Practice Web Technologies Online',
         'url': 'https://www.w3schools.com/',
@@ -94,6 +133,8 @@ def populate():
             'Python': {'pages': python_pages, 'views':256, 'likes':302},
             'Java': {'pages': java_pages, 'views':204, 'likes':208},
             'C++': {'pages': cpp_pages, 'views':197, 'likes':199},
+            'JavaScript': {'pages': js_pages, 'views':165, 'likes':176},
+            'PHP': {'pages': php_pages, 'views':146, 'likes':168},
             'SQL': {'pages': sql_pages, 'views':137, 'likes':154},
             'Django': {'pages': django_pages, 'views':87, 'likes':132},
             'Websites For Practice': {'pages': practice_pages, 'views':64, 'likes':45}}
@@ -106,6 +147,7 @@ def populate():
     for c in Category.objects.all():
         for p in Page.objects.filter(category=c):
             print(f'- {c}: {p}')
+    init_google()
 
 def add_page(cat,title,url,views=0):
     p = Page.objects.get_or_create(category=cat, title=title)[0]
@@ -120,6 +162,16 @@ def add_cat(name, views=0, likes=0):
     c.likes = likes
     c.save()
     return c
+
+
+def init_google():
+    app = SocialApp.objects.create(provider='google', name='google',
+     client_id='419845704276-glnshra6fuprrtpl0oht61nl2675cu3c.apps.googleusercontent.com', 
+     secret='lIGxuM5i0ZY-JYBB1GXt8PM9'
+     )
+    site = Site.objects.first()
+    app.sites.add(site)
+
 
 if __name__=='__main__':
     print('Starting Rango population script...')
