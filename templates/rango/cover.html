@@ -30,9 +30,11 @@
           <img class="second-slide" src="{% static 'images/slide2.jpg' %}">
           <div class="container">
             <div class="carousel-caption">
+
               <h1 style="font-size:65px; height: 130px">EXPLORE A NEW WORLD</h1>
               <p style="font-size:25px; height: 80px">Search for more information</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Search</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{% url 'rango:search' %}" role="button">Search</a></p>
+
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ from datetime import datetime
 from django.contrib.auth.models import User 
 from rango.models import UserProfile
 from django.views import View
+from rango.bing_search import run_query
 
 def cover(request):
     return render(request, 'rango/cover.html', )
@@ -175,3 +176,14 @@ class ProfileView(View):
                         'form': form}
 
         return render(request, 'rango/profile.html', context_dict)
+
+
+def search(request): 
+    result_list = []
+    if request.method == 'POST':
+        query = request.POST['query'].strip() 
+        if query:
+            result_list = run_query(query)
+            
+    return render(request, 'rango/search.html', {'result_list': result_list})
+

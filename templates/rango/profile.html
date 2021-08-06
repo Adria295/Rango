@@ -10,9 +10,9 @@
     <div class="container"></div>
         <h1 class="jumbotron-heading">{{ selected_user.username }}'s Profile</h1>
     </div>
+<<<<<<< HEAD
     </div>
 </div>
-
 <div class="container" style="position:relative;left:150px;">
     <div class="row" >
         <img src="{{ MEDIA_URL }}{{ user_profile.picture }}"
@@ -27,15 +27,17 @@
         {{ form.as_p }}
 
         <input type="submit" value="Update" />
+       
+            <p><a class="btn btn-lg btn-primary" href="{% url 'auth_password_change' %}" role="button">Change Password</a></p>
+        
+        
     </form>
     {% else %}
     <p>
-        <strong>Website:</strong>
-        <a href="{{ user_profile.website }}">{{ user_profile.website }}</a>
     </p>
     {% endif %}
-</div>
-</div>
+    </div>
+  </div>
 </div>
 {% endblock %}
 
