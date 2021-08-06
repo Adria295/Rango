@@ -21,10 +21,10 @@
 
           <div class="row placeholders">
               {% for category in categories %}
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <div class="col-xs-6 col-sm-3 placeholder" >
+              <img style="height: 140px; width:auto;" src="{% static 'images/index/' %}{{category.slug}}.jpg"   class="img-responsive" alt="">
 
-              <h4><a href="{% url 'rango:show_category' category.slug %}">{{ category.name  }}</a></h4>
+              <h4><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></h4>
 
               <span class="text-muted">Something else</span>
             </div>
