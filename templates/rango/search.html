@@ -6,13 +6,13 @@
 {%endblock%}
 
 {% block body_block %}
-<div class="jumbotronp-4">
+<div class="jumbotron p-4" style="background-color:#222222;">
     <div class="container">
-        <h1 class="jumbotron-heading">Search with Rango</h1>
+        <h1 class="jumbotron-heading" style="color:whitesmoke">Search</h1>
     </div>
 </div>
 <div>
-    <form class="form-inline"
+    <form class="form-inline" 
     id="user-form"
       method="post"
       action="{% url 'rango:search' %}">
@@ -33,7 +33,7 @@
 </div>
 <div>
     {% if result_list %}
-    <h2>Results</h2>
+    <h2 style=" top: 5px">Results</h2>
 
     <div class="list-group">
         {% for result in result_list %}

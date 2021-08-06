@@ -11,15 +11,15 @@
 
 {% block body_block %}
     {% if category %}
-    <div class="jumbotron p-4">
+    <div class="jumbotron p-4" style="background-color:#222222">
         <div class="container">
-            <h1 class="jumbotron-heading">{{ category.name }}</h1>
+            <h1 class="jumbotron-heading" style="color:whitesmoke">{{ category.name }}</h1>
         </div>
     </div>
     {% if pages %}
     <ul>
         {% for page in pages %}
-        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+        <li style="font-size: xx-large"><a href="{{ page.url }}">{{ page.title }}</a></li>
         {% endfor %}
     </ul>
     {% else %}
@@ -27,7 +27,7 @@
     {% endif %}
 
     {% if user.is_authenticated %}
-    <a href="{% url 'rango:add_page' category.slug %}">Add Page</a> <br />
+    <a href="{% url 'rango:add_page' category.slug %}" style="font-size: xx-large">Add Page</a> <br />
     {% endif %}
     {% else %}
     The specified category does not exist.
